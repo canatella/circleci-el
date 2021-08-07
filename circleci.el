@@ -147,11 +147,13 @@
            :complete (apply-partially #'circleci-request-success
                                       settings
                                       (lambda (data)
-                                        (let ((workflow-id (json-path '(workflows workflow_id) (elt data 0))))
-                                          (seq-filter
-                                           (lambda (build)
-                                             (string= workflow-id (json-path '(workflows workflow_id) build)))
-                                           data)))))))
+                                        (let-alist (elt data 0)
+                                          (let ((workflow-id .workflows.workflow_id))
+                                            (seq-filter
+                                             (lambda (build)
+                                               (let-alist build
+                                                 (string= workflow-id .workflows.workflow_id)))
+                                             data))))))))
 
 (provide 'circleci)
 
