@@ -1,4 +1,4 @@
-;;; circleci.el -- Integrate Circleci.   -*- lexical-binding: t; -*-
+;;; circleci.el --- Integrate Circleci.   -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2019 Damien Merenne <dam@cosinux.org>
 
